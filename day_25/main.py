@@ -1,3 +1,5 @@
+# WORKING WITH CSV DATA AND THE PANDAS LIBRARY
+
 # with open("weather_data.csv") as file:
 #     weather_data = file.readlines()
 
@@ -16,6 +18,23 @@
 
 import pandas as pd
 
-weather_data = pd.read_csv("weather_data.csv")
+# weather_data = pd.read_csv("weather_data.csv")
 
-print(weather_data)
+# print(weather_data[weather_data["temp"] == max(weather_data["temp"])]["day"])
+
+
+sq_data = pd.read_csv("2018_Central_Park_Squirrel_Census_-_Squirrel_Data.csv")
+
+grey = len(sq_data[sq_data["Primary Fur Color"] == "Gray"])
+red = len(sq_data[sq_data["Primary Fur Color"] == "Cinnamon"])
+black = len(sq_data[sq_data["Primary Fur Color"] == "Black"])
+
+color_dict = {
+    "Fur Color": ["Gray", "Cinnamon", "Black"],
+    "Count": [grey, red, black]
+}
+
+color_df = pd.DataFrame(color_dict)
+
+
+print(color_df)
